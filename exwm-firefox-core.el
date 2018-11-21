@@ -63,25 +63,25 @@
 
 ;; Also select
 (defun exwm-firefox-core-up-select ()
-  "Move up."
+  "Move up and select."
   (interactive)
   (exwm-input--fake-key 'S-up))
 
 ;;;###autoload
 (defun exwm-firefox-core-down-select ()
-  "Move down."
+  "Move down and select."
   (interactive)
   (exwm-input--fake-key 'S-down))
 
 ;;;###autoload
 (defun exwm-firefox-core-left-select ()
-  "Move left."
+  "Move left and select."
   (interactive)
   (exwm-input--fake-key 'S-left))
 
 ;;;###autoload
 (defun exwm-firefox-core-right-select ()
-  "Move right."
+  "Move right and select."
   (interactive)
   (exwm-input--fake-key 'S-right))
 
@@ -99,13 +99,13 @@
   (exwm-input--fake-key 'end))
 
 (defun exwm-firefox-core-top-select ()
-  "Move to top of page."
+  "Move to top of page and select."
   (interactive)
   (exwm-input--fake-key 'S-home))
 
 ;;;###autoload
 (defun exwm-firefox-core-bottom-select ()
-  "Move to bottom of page."
+  "Move to bottom of page and select."
   (interactive)
   (exwm-input--fake-key 'S-end))
 
@@ -124,13 +124,13 @@
 
 ;; Select
 (defun exwm-firefox-core-page-up-select ()
-  "Move one page up."
+  "Move one page up and select."
   (interactive)
   (exwm-input--fake-key 'S-prior))
 
 ;;;###autoload
 (defun exwm-firefox-core-page-down-select ()
-  "Move one page down."
+  "Move one page down and select."
   (interactive)
   (exwm-input--fake-key 'S-next))
 
@@ -157,13 +157,13 @@
 
 ;;;###autoload
 (defun exwm-firefox-core-half-page-down-select ()
-  "Move down half a page."
+  "Move down half a page and select."
   (interactive)
   (exwm-firefox-core-half-page-move 'S-down))
 
 ;;;###autoload
 (defun exwm-firefox-core-half-page-up-select ()
-  "Move up half a page."
+  "Move up half a page and select."
   (interactive)
   (exwm-firefox-core-half-page-move 'S-up))
 
@@ -366,23 +366,23 @@
   (exwm-input--fake-key ?\C-a))
 
 (defun exwm-firefox-core-forward-word ()
-  "Copy text."
+  "Move word forward."
   (interactive)
   (exwm-input--fake-key 'C-right))
 
 (defun exwm-firefox-core-back-word ()
-  "Copy text."
+  "Move word backward."
   (interactive)
   (exwm-input--fake-key 'C-left))
 
 ;; Also select
 (defun exwm-firefox-core-forward-word-select ()
-  "Copy text."
+  "Move word forward and select."
   (interactive)
   (exwm-input--fake-key 'C-S-right))
 
 (defun exwm-firefox-core-back-word-select ()
-  "Copy text."
+  "Move word backward and select."
   (interactive)
   (exwm-input--fake-key 'C-S-left))
 
