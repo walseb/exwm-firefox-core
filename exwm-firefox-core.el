@@ -61,6 +61,31 @@
   (interactive)
   (exwm-input--fake-key 'right))
 
+;; Also select
+(defun exwm-firefox-core-up-select ()
+  "Move up."
+  (interactive)
+  (exwm-input--fake-key 'S-up))
+
+;;;###autoload
+(defun exwm-firefox-core-down-select ()
+  "Move down."
+  (interactive)
+  (exwm-input--fake-key 'S-down))
+
+;;;###autoload
+(defun exwm-firefox-core-left-select ()
+  "Move left."
+  (interactive)
+  (exwm-input--fake-key 'S-left))
+
+;;;###autoload
+(defun exwm-firefox-core-right-select ()
+  "Move right."
+  (interactive)
+  (exwm-input--fake-key 'S-right))
+
+
 ;;; Top, bot
 ;;;###autoload
 (defun exwm-firefox-core-top ()
@@ -73,6 +98,17 @@
   "Move to bottom of page."
   (interactive)
   (exwm-input--fake-key 'end))
+
+(defun exwm-firefox-core-top-select ()
+  "Move to top of page."
+  (interactive)
+  (exwm-input--fake-key 'S-home))
+
+;;;###autoload
+(defun exwm-firefox-core-bottom-select ()
+  "Move to bottom of page."
+  (interactive)
+  (exwm-input--fake-key 'S-end))
 
 ;;; Scroll
 ;;;###autoload
@@ -87,28 +123,50 @@
   (interactive)
   (exwm-input--fake-key 'next))
 
+;; Select
+(defun exwm-firefox-core-page-up-select ()
+  "Move one page up."
+  (interactive)
+  (exwm-input--fake-key 'S-prior))
+
+;;;###autoload
+(defun exwm-firefox-core-page-down-select ()
+  "Move one page down."
+  (interactive)
+  (exwm-input--fake-key 'S-next))
+
 ;;;###autoload
 (defvar exwm-firefox-core-half-page-lenght 9
   "The lenght of half a page.")
 
-(defun exwm-firefox-core-half-page-move (up)
+(defun exwm-firefox-core-half-page-move (key)
   "If UP is non-nil, move half page up otherwise move down."
   (dotimes (i exwm-firefox-core-half-page-lenght)
-    (if up
-        (exwm-input--fake-key 'up)
-      (exwm-input--fake-key 'down))))
+    (exwm-input--fake-key key)))
 
 ;;;###autoload
 (defun exwm-firefox-core-half-page-down ()
   "Move down half a page."
   (interactive)
-  (exwm-firefox-core-half-page-move nil))
+  (exwm-firefox-core-half-page-move 'down))
 
 ;;;###autoload
 (defun exwm-firefox-core-half-page-up ()
   "Move up half a page."
   (interactive)
-  (exwm-firefox-core-half-page-move t))
+  (exwm-firefox-core-half-page-move 'up))
+
+;;;###autoload
+(defun exwm-firefox-core-half-page-down-select ()
+  "Move down half a page."
+  (interactive)
+  (exwm-firefox-core-half-page-move 'S-down))
+
+;;;###autoload
+(defun exwm-firefox-core-half-page-up-select ()
+  "Move up half a page."
+  (interactive)
+  (exwm-firefox-core-half-page-move 'S-up))
 
 ;;; History
 ;;;###autoload
@@ -317,6 +375,17 @@
   "Copy text."
   (interactive)
   (exwm-input--fake-key 'C-left))
+
+;; Also select
+(defun exwm-firefox-core-forward-word-select ()
+  "Copy text."
+  (interactive)
+  (exwm-input--fake-key 'C-S-right))
+
+(defun exwm-firefox-core-back-word-select ()
+  "Copy text."
+  (interactive)
+  (exwm-input--fake-key 'C-S-left))
 
 ;;; Bookmark
 ;;;###autoload
