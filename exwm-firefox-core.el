@@ -118,8 +118,8 @@
   (exwm-input--fake-key 'M-right))
 
 ;;;###autoload
-(defun exwm-firefox-core-history-backward ()
-  "Backward in history."
+(defun exwm-firefox-core-history-back ()
+  "Back in history."
   (interactive)
   (exwm-input--fake-key 'M-left))
 
@@ -307,6 +307,16 @@
   "Select whole page."
   (interactive)
   (exwm-input--fake-key ?\C-a))
+
+(defun exwm-firefox-core-forward-word ()
+  "Copy text."
+  (interactive)
+  (exwm-input--fake-key 'C-right))
+
+(defun exwm-firefox-core-back-word ()
+  "Copy text."
+  (interactive)
+  (exwm-input--fake-key 'C-left))
 
 ;;; Bookmark
 ;;;###autoload
