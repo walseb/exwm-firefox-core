@@ -85,7 +85,6 @@
   (interactive)
   (exwm-input--fake-key 'S-right))
 
-
 ;;; Top, bot
 ;;;###autoload
 (defun exwm-firefox-core-top ()
