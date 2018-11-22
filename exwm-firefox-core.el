@@ -225,7 +225,7 @@
 (defun exwm-firefox-core-tab-close-undo ()
   "Undo close tab."
   (interactive)
-  (exwm-input--fake-key 'C-S-t))
+  (exwm-input--fake-key ?\C-\S-t))
 
 ;;;###autoload
 (defun exwm-firefox-core-tab-new ()
@@ -292,13 +292,13 @@
 (defun exwm-firefox-core-window-close ()
   "Close window."
   (interactive)
-  (exwm-input--fake-key 'C-S-w))
+  (exwm-input--fake-key ?\C-\S-w))
 
 ;;;###autoload
 (defun exwm-firefox-core-window-close-undo ()
   "Undo close window."
   (interactive)
-  (exwm-input--fake-key 'C-S-n))
+  (exwm-input--fake-key ?\C-\S-n))
 
 ;;; Find
 ;;;###autoload
