@@ -424,8 +424,8 @@
   "General cancel action."
   (interactive)
   ;; Needs to get user out of search bar, this is the only way i've found to do it
-  (exwm-input--fake-key 'tab)
-  (exwm-input--fake-key 'escape))
+  (exwm-input--fake-key 'escape)
+  (exwm-input--fake-key 'tab))
 
 ;;;###autoload
 (defun exwm-firefox-core-open-file ()
