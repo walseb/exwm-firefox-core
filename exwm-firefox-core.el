@@ -141,7 +141,7 @@
   "The lenght of half a page.")
 
 (defun exwm-firefox-core-half-page-move (key)
-  "If UP is non-nil, move half page up otherwise move down."
+  "Press KEY the amount of times defined by `exwm-firefox-core-half-page-lenght'."
   (dotimes (i exwm-firefox-core-half-page-lenght)
     (exwm-input--fake-key key)))
 
