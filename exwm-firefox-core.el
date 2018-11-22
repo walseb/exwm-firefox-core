@@ -61,7 +61,8 @@
   (interactive)
   (exwm-input--fake-key 'right))
 
-;; Also select
+;;;; Selection
+;;;###autoload
 (defun exwm-firefox-core-up-select ()
   "Move up and select."
   (interactive)
@@ -85,7 +86,7 @@
   (interactive)
   (exwm-input--fake-key 'S-right))
 
-;;; Top, bot
+;;; Move to top, bot
 ;;;###autoload
 (defun exwm-firefox-core-top ()
   "Move to top of page."
@@ -98,6 +99,7 @@
   (interactive)
   (exwm-input--fake-key 'end))
 
+;;;; Selection
 (defun exwm-firefox-core-top-select ()
   "Move to top of page and select."
   (interactive)
@@ -109,7 +111,7 @@
   (interactive)
   (exwm-input--fake-key 'S-end))
 
-;;; Scroll
+;;; Scroll page
 ;;;###autoload
 (defun exwm-firefox-core-page-up ()
   "Move one page up."
@@ -122,7 +124,7 @@
   (interactive)
   (exwm-input--fake-key 'next))
 
-;; Select
+;;;; Selection
 (defun exwm-firefox-core-page-up-select ()
   "Move one page up and select."
   (interactive)
@@ -134,7 +136,7 @@
   (interactive)
   (exwm-input--fake-key 'S-next))
 
-;;;###autoload
+;;; Scroll half page
 (defvar exwm-firefox-core-half-page-lenght 9
   "The lenght of half a page.")
 
@@ -155,6 +157,7 @@
   (interactive)
   (exwm-firefox-core-half-page-move 'up))
 
+;;;; Selection
 ;;;###autoload
 (defun exwm-firefox-core-half-page-down-select ()
   "Move down half a page and select."
@@ -211,7 +214,7 @@
   (interactive)
   (exwm-input--fake-key 'C-f5))
 
-;;; Tabs
+;;; Tab management
 ;;;###autoload
 (defun exwm-firefox-core-tab-close ()
   "Close tab."
@@ -272,7 +275,7 @@
   (interactive)
   (exwm-input--fake-key ?\C-m))
 
-;;; Window
+;;; Window management
 ;;;###autoload
 (defun exwm-firefox-core-window-new ()
   "New window."
@@ -360,31 +363,35 @@
   (exwm-input--fake-key ?\C-\S-z))
 
 ;;;###autoload
-(defun exwm-firefox-core-select-all ()
-  "Select whole page."
-  (interactive)
-  (exwm-input--fake-key ?\C-a))
-
 (defun exwm-firefox-core-forward-word ()
   "Move word forward."
   (interactive)
   (exwm-input--fake-key 'C-right))
 
+;;;###autoload
 (defun exwm-firefox-core-back-word ()
   "Move word backward."
   (interactive)
   (exwm-input--fake-key 'C-left))
 
-;; Also select
+;;;; Selection
+;;;###autoload
 (defun exwm-firefox-core-forward-word-select ()
   "Move word forward and select."
   (interactive)
   (exwm-input--fake-key 'C-S-right))
 
+;;;###autoload
 (defun exwm-firefox-core-back-word-select ()
   "Move word backward and select."
   (interactive)
   (exwm-input--fake-key 'C-S-left))
+
+;;;###autoload
+(defun exwm-firefox-core-select-all ()
+  "Select whole page."
+  (interactive)
+  (exwm-input--fake-key ?\C-a))
 
 ;;; Bookmark
 ;;;###autoload
@@ -416,6 +423,8 @@
 (defun exwm-firefox-core-cancel ()
   "General cancel action."
   (interactive)
+  ;; Needs to get user out of search bar, this is the only way i've found to do it
+  (exwm-input--fake-key 'tab)
   (exwm-input--fake-key 'escape))
 
 ;;;###autoload
