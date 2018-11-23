@@ -414,6 +414,12 @@
 
 ;;; Misc
 ;;;###autoload
+(defun exwm-firefox-core-focus-search-bar ()
+  "Toggle focus between the search bar and the page."
+  (interactive)
+  (exwm-input--fake-key ?\C-k))
+
+;;;###autoload
 (defun exwm-firefox-core-toggle-focus-search-bar ()
   "Toggle focus between the search bar and the page."
   (interactive)
