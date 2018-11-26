@@ -348,7 +348,7 @@
 (defun exwm-firefox-core-delete ()
   "Delete text."
   (interactive)
-  (exwm-input--fake-key 'deletechar))
+  (exwm-input--fake-key 'delete))
 
 ;;;###autoload
 (defun exwm-firefox-core-undo ()
