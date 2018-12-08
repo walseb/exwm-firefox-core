@@ -1,7 +1,7 @@
 * exwm-firefox-core
 This package contains functions that execute exwm keypresses mapped in firefox to the action described in the function name.
 
-This package is only a library so it does not contain any keybindings If you don't want to bind the functions yourself, check out other packages using this library such as =exwm-firefox-evil.el=
+This package is only a library so it does not contain any keybindings If you don't want to bind the functions yourself, check out other packages using this library such as [[https://github.com/walseb/exwm-firefox-evil][exwm-firefox-evil]]
 
 Since this library contains a lot of autoloads, it is recommended to load it with
 #+BEGIN_SRC emacs-lisp
