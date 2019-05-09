@@ -1,3 +1,4 @@
+[[https://melpa.org/#/exwm-firefox-core][file:https://melpa.org/packages/exwm-firefox-core-badge.svg]]
 * exwm-firefox-core
 This package contains functions that execute exwm keypresses mapped in firefox to the action described in the function name.
 
