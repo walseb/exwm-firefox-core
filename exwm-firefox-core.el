@@ -237,13 +237,13 @@
 (defun exwm-firefox-core-tab-next ()
   "Next tab."
   (interactive)
-  (exwm-input--fake-key 'C-tab))
+  (exwm-input--fake-key 'C-next))
 
 ;;;###autoload
 (defun exwm-firefox-core-tab-previous ()
   "Previous tab."
   (interactive)
-  (exwm-input--fake-key 'S-C-tab))
+  (exwm-input--fake-key 'C-prior))
 
 ;;;###autoload
 (defun exwm-firefox-core-tab-first ()
