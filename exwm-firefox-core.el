@@ -291,6 +291,16 @@ get into the search bar."
   (interactive)
   (exwm-input--fake-key ?\C-m))
 
+(defun exwm-firefox-duplicate-tab ()
+  "Duplicates the current tab."
+  (interactive)
+  (exwm-firefox-core-focus-search-bar)
+  (exwm-firefox-core-copy)
+  (exwm-firefox-core-tab-new)
+  (exwm-firefox-core-focus-search-bar)
+  (exwm-firefox-core-paste)
+  (exwm-firefox-core--do-search))
+
 ;;; Window management
 ;;;###autoload
 (defun exwm-firefox-core-window-new ()
@@ -435,14 +445,18 @@ get into the search bar."
   (interactive)
   (exwm-input--fake-key ?\M-d))
 
-(defun exwm-firefox-core--search-minibuffer ()
-  "Edits search bar text using exwm-edit."
-  (exwm-edit--compose-minibuffer exwm-firefox-core-search-bookmarks)
+(defun exwm-firefox-core--do-search ()
+  "This reliably presses return is the search field."
   (run-with-timer 0.1 nil (lambda ()
 			    ;; This ensures that the search box registers that the text box has been updated
 			    (exwm-input--fake-key 'down)
 			    (run-with-timer 0.05 nil (lambda ()
 						       (exwm-input--fake-key 'return))))))
+
+(defun exwm-firefox-core--search-minibuffer ()
+  "Edits search bar text using exwm-edit."
+  (exwm-edit--compose-minibuffer exwm-firefox-core-search-bookmarks)
+  (exwm-firefox-core--do-search))
 
 ;;;###autoload
 (defun exwm-firefox-core-search ()
