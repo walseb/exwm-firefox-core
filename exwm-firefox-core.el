@@ -35,6 +35,22 @@
 
 (require 'exwm)
 (require 'exwm-input)
+(require 'exwm-edit)
+
+(defcustom exwm-firefox-core-old-search-solution nil
+  "If non-nil, also run tab on `exwm-firefox-core-cancel'.
+This helps you get out of the search bar but causes other problems.
+It's reccomended to use `exwm-firefox-core-search' instead of binding keys to
+get into the search bar."
+  :type 'boolean
+  :group 'exwm-edit)
+
+(defcustom exwm-firefox-core-search-bookmarks '(("google.com")
+						("youtube.com")
+						("github.com"))
+  "Completion entries to be shown when running `exwm-firefox-core-search'."
+  :type 'list
+  :group 'exwm-edit)
 
 ;;; Basic navigation
 ;;;###autoload
@@ -415,9 +431,16 @@
 ;;; Misc
 ;;;###autoload
 (defun exwm-firefox-core-focus-search-bar ()
-  "Toggle focus between the search bar and the page."
+  "Focus the search bar."
   (interactive)
   (exwm-input--fake-key ?\M-d))
+
+(defun exwm-firefox-core-search ()
+  "Toggle focus between the search bar and the page."
+  (interactive)
+  (exwm-firefox-core-focus-search-bar)
+  (exwm-edit--compose-minibuffer exwm-firefox-core-search-bookmarks)
+  (run-with-timer 0.05 nil (lambda () (exwm-input--fake-key 'return))))
 
 ;;;###autoload
 (defun exwm-firefox-core-toggle-focus-search-bar ()
@@ -429,9 +452,11 @@
 (defun exwm-firefox-core-cancel ()
   "General cancel action."
   (interactive)
-  ;; Needs to get user out of search bar, this is the only way i've found to do it
   (exwm-input--fake-key 'escape)
-  (exwm-input--fake-key 'tab))
+  (when exwm-firefox-core-old-search-solution
+    ;; Needs to get user out of search bar when the user mashes escape.
+    ;; This is the only way i've found to do it.
+    (exwm-input--fake-key 'tab)))
 
 ;;;###autoload
 (defun exwm-firefox-core-open-file ()
