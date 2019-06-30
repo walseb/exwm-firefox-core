@@ -435,21 +435,29 @@ get into the search bar."
   (interactive)
   (exwm-input--fake-key ?\M-d))
 
+(defun exwm-firefox-core--search-minibuffer ()
+  "Edits search bar text using exwm-edit."
+  (exwm-edit--compose-minibuffer exwm-firefox-core-search-bookmarks)
+  (run-with-timer 0.1 nil (lambda ()
+			    ;; This ensures that the search box registers that the text box has been updated
+			    (exwm-input--fake-key 'down)
+			    (run-with-timer 0.05 nil (lambda ()
+						       (exwm-input--fake-key 'return))))))
+
 ;;;###autoload
 (defun exwm-firefox-core-search ()
   "Make a search using the minibuffer.
 Bookmarks can be added by editing `exwm-firefox-core-search-bookmarks'"
   (interactive)
   (exwm-firefox-core-focus-search-bar)
-  (exwm-edit--compose-minibuffer exwm-firefox-core-search-bookmarks)
-  (run-with-timer 0.05 nil (lambda () (exwm-input--fake-key 'return))))
+  (exwm-firefox-core--search-minibuffer))
 
 ;;;###autoload
 (defun exwm-firefox-core-search-new-tab ()
   "Toggle focus between the search bar and the page."
   (interactive)
   (exwm-firefox-core-tab-new)
-  (exwm-firefox-core-search))
+  (run-with-timer 0.1 nil 'exwm-firefox-core--search-minibuffer))
 
 ;;;###autoload
 (defun exwm-firefox-core-toggle-focus-search-bar ()
