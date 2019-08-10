@@ -172,16 +172,24 @@
 
 ;;; History
 ;;;###autoload
-(defun exwm-firefox-core-history-forward ()
+(defun exwm-firefox-core-history-forward (&optional arg)
   "Forward in history."
-  (interactive)
-  (exwm-input--fake-key 'M-right))
+  (interactive "P")
+  (let ((times (or arg 1)))
+    (dotimes (_ times)
+      (exwm-input--fake-key 'M-right)
+      (when (> times 1)
+        (sit-for .01)))))
 
 ;;;###autoload
-(defun exwm-firefox-core-history-back ()
+(defun exwm-firefox-core-history-back (&optional arg)
   "Back in history."
-  (interactive)
-  (exwm-input--fake-key 'M-left))
+  (interactive "P")
+  (let ((times (or arg 1)))
+    (dotimes (_ times)
+      (exwm-input--fake-key 'M-left)
+      (when (> times 1)
+        (sit-for .01)))))
 
 ;;;###autoload
 (defun exwm-firefox-core-history-sidebar ()
