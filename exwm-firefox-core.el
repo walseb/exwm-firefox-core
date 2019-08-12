@@ -433,7 +433,7 @@ Should be set depending on how fast your system is."
 (defun exwm-firefox-core-focus-search-bar ()
   "Toggle focus between the search bar and the page."
   (interactive)
-  (exwm-input--fake-key ?\M-d))
+  (exwm-input--fake-key ?\C-l))
 
 ;;;###autoload
 (defun exwm-firefox-core-toggle-focus-search-bar ()
